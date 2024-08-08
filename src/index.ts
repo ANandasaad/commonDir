@@ -3,7 +3,7 @@ interface Color {
 }
 
 const Color: Color = {
-  red: 0,
+  red: 10,
 };
 
 console.log(Color);

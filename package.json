@@ -1,6 +1,6 @@
 {
   "name": "@akticketorg/commondir",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -8,9 +8,9 @@
     "build/**/*"
   ],
   "scripts": {
-   "build": "npm run clean && tsc",
-   "clean": "del ./build/*",
-   "pub": "git add . && git commit -m \"updates\" && npm version patch && npm run build && npm publish"
+    "build": "npm run clean && tsc",
+    "clean": "del ./build/*",
+    "pub": "git add . && git commit -m \"updates\" && npm version patch && npm run build && npm publish"
   },
   "keywords": [],
   "author": "",

@@ -21,6 +21,7 @@ export const currentUser = (
 ) => {
   if (!req.session?.jwt)
     throw new BadRequestError("invalid credentials user is not logged in");
+  next();
   try {
     const payload = jwt.verify(
       req.session.jwt,

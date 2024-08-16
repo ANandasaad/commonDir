@@ -19,15 +19,20 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  if (!req.session?.jwt)
-    throw new BadRequestError("invalid credentials user is not logged in");
-  next();
+  if (!req.session?.jwt) {
+    throw new BadRequestError("Invalid credentials. User is not logged in.");
+  }
+
   try {
     const payload = jwt.verify(
       req.session.jwt,
       process.env.JWT_KEY!
     ) as UserPayload;
-    req.currentUser = payload;
-  } catch (error) {}
-  next();
+
+    req.currentUser = payload; // Attach the payload to the request object
+  } catch (error) {
+    console.error("JWT verification failed:", error);
+  }
+
+  next(); // Continue to the next middleware or route handler
 };
